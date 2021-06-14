@@ -55,7 +55,7 @@ public class Game extends Canvas implements Runnable,KeyListener{
 	
 	public void render() {
         // Classe para renderizar o Game
-		BufferStrategy bs = this.getBufferStrategy();
+		BufferStrategy bs = this.getBufferStrategy(); // ajuda na renderização de desenhos na tela
 		if(bs == null){
 			this.createBufferStrategy(3);
 			return;

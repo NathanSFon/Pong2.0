@@ -16,15 +16,16 @@ public class Game extends Canvas implements Runnable,KeyListener{
 	private static final long serialVersionUID = 1L;
 	public static int WIDTH = 160;
 	public static int HEIGHT = 120;
-	public static int SCALE = 3;
+	public static int SCALE = 3; // Utilizamos o scale como forma de mudar dinamicamente o tamanho da janela
 	
-	public BufferedImage layer = new BufferedImage(WIDTH,HEIGHT,BufferedImage.TYPE_INT_RGB);
+	public BufferedImage layer = new BufferedImage(WIDTH,HEIGHT,BufferedImage.TYPE_INT_RGB); //layer na tela
 	
 	public static Player player;
 	public static Enemy enemy;
 	public static Ball ball;
 	
 	public Game() {
+        //construtor 
         this.setPreferredSize(new Dimension(WIDTH*SCALE,HEIGHT*SCALE));
 		this.addKeyListener(this);
         player = new Player(60 , HEIGHT- 7);
@@ -46,6 +47,7 @@ public class Game extends Canvas implements Runnable,KeyListener{
     }
 	
 	public void tick() {
+        // ações que devem ser revisadas constantemente 
         player.tick();
         enemy.tick();
         ball.tick();
@@ -77,6 +79,7 @@ public class Game extends Canvas implements Runnable,KeyListener{
 		while(true) {
 			tick();
 			render();
+            // esse seria o "fps" do jogo
 			try {
 				Thread.sleep(1000/60);
 			} catch (InterruptedException e) {
@@ -93,6 +96,7 @@ public class Game extends Canvas implements Runnable,KeyListener{
 
     @Override
     public void keyPressed(KeyEvent e) {
+        // teclas de ação
         if (e.getKeyCode() == KeyEvent.VK_RIGHT){
             player.right = true;
         }else if(e.getKeyCode() == KeyEvent.VK_LEFT){

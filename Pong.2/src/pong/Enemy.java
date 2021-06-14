@@ -15,7 +15,8 @@ public class Enemy {
     }
 
     public void tick(){
-        x+= (Game.ball.x - x - 6) * 0.07;
+        // codigo para fazer o inimigo "pensar" e seguir a bola
+        x+= (Game.ball.x - x - 6) * 0.07; // o ultimo parametro representa a taxa de erro que o inimigo vai ter
     }
 
     public void render(Graphics g){

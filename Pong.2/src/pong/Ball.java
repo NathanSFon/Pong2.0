@@ -10,9 +10,10 @@ public class Ball {
     public int width,height;
     
     public double  dx,dy;
-    public double speed = 1.7;
+    public double speed = 1.7;//velocidade de movimento da bola
 
     public Ball(int x, int y){
+        // movimento da bola 
         this.x = x;
         this.y = y;
         this.width = 5;
@@ -33,6 +34,7 @@ public class Ball {
         
         if(y >= Game.HEIGHT)
         {
+            //teste para saber se esta pontuando
             //Ponto do inimigo.
             System.out.println("Ponto do inimigo!");
             new Game();
@@ -43,7 +45,7 @@ public class Ball {
             new Game();
             return;
         }
-        
+
         Rectangle bounds = new Rectangle((int)(x+(dx*speed)),(int)(y+(dy*speed)),width,height);
         
         Rectangle boundsPlayer = new Rectangle(Game.player.x,Game.player.y,Game.player.width,Game.player.height);
